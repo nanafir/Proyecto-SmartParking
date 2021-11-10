@@ -1,26 +1,26 @@
 const express = require("express")
-const personaDAO = require("../model/PersonasDAO")
+const registroDAO = require("../model/RegistroDAO")
 
-const usuarioCtrl = {}
+const regsitroCtrl = {}
 
-usuarioCtrl.listar = async() => {
-    let personas = await personaDAO.find();
-    return personas;
+registroCtrl.listar = async() => {
+    let registros = await registroDAO.find();
+    return registros;
 };
 
-usuarioCtrl.insertar = async(persona) => {
-    return await personaDAO.create(persona);
+registroCtrl.insertar = async(registro) => {
+    return await registroDAO.create(registro);
 };
 
-usuarioCtrl.actualizar = async(persona) => {
-    let id = persona._id;
-    delete persona._id;
-    return await personaDAO.findOneAndUpdate(id, persona);
+registroCtrl.actualizar = async(registro) => {
+    let id = registro._id;
+    delete registro._id;
+    return await registroDAO.findOneAndUpdate(id, registro);
 };
 
-usuarioCtrl.eliminar = async(id) => {
-    await personaDAO.deleteOne({ _id: id });
+registroCtrl.eliminar = async(id) => {
+    await registroDAO.deleteOne({ _id: id });
 
 };
 
-module.exports = usuarioCtrl;
+module.exports = registroCtrl;
