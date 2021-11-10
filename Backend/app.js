@@ -1,9 +1,11 @@
 const { application, response, request } = require("express");
 const { stringify } = require("nodemon/lib/utils");
 const express = require("express")
-const mongoose = require("./conexionBD")
+const registroCtrl = require("./controller/RegistroCtrl")
+
 const app = express();
 app.use(express.json());
+
 let registro = [{
     placa_vehiculo = " ",
     plaza = " ",
@@ -39,28 +41,12 @@ app.post('/api/registro', (request, response) => {
     }
 });
 
-app.delete('/api/registro', (request, response) => {
-    let registroElim = request.body;
-    console.log(registroElim.placa_vehiculo);
-    let existe = false;
-    for (let i = 0; i < registro.length; i++) {
-        console.log("registroElim.placa_vehiculentro al for");
-        console.log(registroElim.placa_vehiculo);
-        console.log(registro[i].placa_vehiculo);
-        if (registroElim.placa_vehiculo == registro[i].placa_vehiculo) {
-            console.log(registro[i].placa_vehiculo);
-            console.log("La persona con cc: " + registroElim.placa_vehiculo + " , sera eliminada");
-            registro.splice(i, 1);
-            response.status(200).json(registro);
-            i = registro.length;
-            existe = true;
-
-        }
-    }
-    if (!existe) {
-        response.status(404).send("Persona no existe, no se puede borrar");
-    }
-})
+app.delete('/api/personas/:id', async(request, response) => {
+    let id = request.params.id
+    console.log(id);
+    await personasCtrl.eliminar(id);
+    response.status(204).send("Server corriendo")
+});
 
 
 app.listen(1400, () => {
