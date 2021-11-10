@@ -1,4 +1,4 @@
-const mongoose = require("../DB/conexionDB")
+const mongoose = require("../DB/conexionBD")
 
 const registroSchema = mongoose.Schema({
     placa_vehiculo: String,

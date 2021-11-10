@@ -1,6 +1,6 @@
-const mongoose = require("../DB/conexionDB")
+const mongoose = require("../DB/conexionBD")
 
-const personaSchema = mongoose.Schema({
+const parametrosSchema = mongoose.Schema({
     placa_vehiculo: String,
     plaza: String,
     hora_ingreso: Date,
@@ -9,10 +9,10 @@ const personaSchema = mongoose.Schema({
     tipo_vehiculo: String,
     total_pagar: String,
 }, {
-    collection: "registro",
+    collection: "Parametros",
     versionKey: false
 });
 
-const personaDAO = mongoose.model('Personas', personaSchema);
+const parametrosDAO = mongoose.model('Parametros', parametrosSchema);
 
-module.exports = personaDAO;
+module.exports = parametrosDAO;

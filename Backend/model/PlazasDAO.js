@@ -1,4 +1,4 @@
-const mongoose = require("../DB/conexionDB")
+const mongoose = require("../DB/conexionBD")
 
 const plazasSchema = mongoose.Schema({
     placa_vehiculo: String,
@@ -9,10 +9,10 @@ const plazasSchema = mongoose.Schema({
     tipo_vehiculo: String,
     total_pagar: String,
 }, {
-    collection: "registro",
+    collection: "Plazas",
     versionKey: false
 });
 
-const plazasDAO = mongoose.model('Personas', plazasSchema);
+const plazasDAO = mongoose.model('Plazas', plazasSchema);
 
 module.exports = plazasDAO;
