@@ -15,7 +15,7 @@ app.get('/api/registro', async(request, response) => {
 app.post('/api/registro', async(request, response) => {
     const registro = request.body;
     try {
-        await registroDAO.insertar(registro);
+        await registroCtrl.insertar(registro);
         response.status(200).json(registro);
     } catch (error) {
         console.log(error);
@@ -26,7 +26,7 @@ app.post('/api/registro', async(request, response) => {
 app.put('/api/registro', async(request, response) => {
     const registro = request.body;
     try {
-        await registroDAO.actualizar(registro);
+        await registroCtrl.actualizar(registro);
         response.status(200).json(registro);
     } catch (error) {
         console.log(error);

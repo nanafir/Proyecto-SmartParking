@@ -13,9 +13,7 @@ registroCtrl.insertar = async(registro) => {
 };
 
 registroCtrl.actualizar = async(registro) => {
-    let id = registro._id;
-    delete registro._id;
-    return await registroDAO.findOneAndUpdate(id, registro);
+    return await registroDAO.findOneAndUpdate(registro._id, registro);
 };
 
 registroCtrl.eliminar = async(id) => {
