@@ -1,18 +1,17 @@
 const mongoose = require("../DB/conexionBD")
 
 const parametrosSchema = mongoose.Schema({
-    placa_vehiculo: String,
-    plaza: String,
-    hora_ingreso: Date,
-    hora_salida: Date,
-    imagen_vehiculo: String,
-    tipo_vehiculo: String,
-    total_pagar: String,
+    tipo_carro: Int,
+    tipo_moto: Int,
+    tipo_bicicleta: Int,
+    tpm_carro: Int,
+    tpm_moto: Int,
+    tpm_bicicleta: Int
 }, {
-    collection: "Parametros",
+    collection: "parametros",
     versionKey: false
 });
 
-const parametrosDAO = mongoose.model('Parametros', parametrosSchema);
+const parametrosDAO = mongoose.model('parametros', parametrosSchema);
 
 module.exports = parametrosDAO;

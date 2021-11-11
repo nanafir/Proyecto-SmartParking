@@ -1,18 +1,13 @@
 const mongoose = require("../DB/conexionBD")
 
 const plazasSchema = mongoose.Schema({
-    placa_vehiculo: String,
     plaza: String,
-    hora_ingreso: Date,
-    hora_salida: Date,
-    imagen_vehiculo: String,
-    tipo_vehiculo: String,
-    total_pagar: String,
+    estado: Boolean(false)
 }, {
-    collection: "Plazas",
+    collection: "plazas",
     versionKey: false
 });
 
-const plazasDAO = mongoose.model('Plazas', plazasSchema);
+const plazasDAO = mongoose.model('plazas', plazasSchema);
 
 module.exports = plazasDAO;

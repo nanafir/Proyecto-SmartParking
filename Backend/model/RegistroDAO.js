@@ -9,10 +9,10 @@ const registroSchema = mongoose.Schema({
     tipo_vehiculo: String,
     total_pagar: String,
 }, {
-    collection: "Registro",
+    collection: "registro",
     versionKey: false
 });
 
-const registroDAO = mongoose.model('Registro', registroSchema);
+const registroDAO = mongoose.model('registro', registroSchema);
 
 module.exports = registroDAO;
