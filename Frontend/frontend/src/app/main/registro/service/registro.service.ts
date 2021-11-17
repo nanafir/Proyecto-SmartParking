@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { RegistroTO } from '../../interfaces/registroto.interface';
 
 
@@ -9,7 +9,7 @@ import { RegistroTO } from '../../interfaces/registroto.interface';
 })
 export class RegistroService {
 
-  url:String = "http://127.0.0.1:1400/api/registro";
+  url:string = "http://127.0.0.1:1400/api/registro";
 
   constructor(private _http: HttpClient) { }
 
@@ -25,8 +25,8 @@ export class RegistroService {
     return this._http.put<RegistroTO>(this.url, registro);
   }
 
-  eliminar(id: String) : Observable<String> {
-    return this._http.delete<String>(this.url + "/" + id);
+  eliminar(id: string) : Observable<string> {
+    return this._http.delete<string>(this.url + "/" + id);
   }
 
 }
