@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistroService } from './service/registro.service';
+import { RegistroTO } from '../interfaces/registroto.interface';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _registroService: RegistroService) { }
+
+  listaRegistro : RegistroTO[] = new Array<RegistroTO>();
+  registro : RegistroTO = new RegistroTO();
 
   ngOnInit(): void {
+    this.listarRegistro();
   }
 
+  listarRegistro(){
+    this._registroService.listarRegistro().subscribe(
+      data => {
+        this.listaRegistro = data;
+      }
+    );
+  }
+
+  Guardar(){
+
+
+  }
+  LimpiarFormulario(){
+    this.registro = new RegistroTO();
+  }
 }
