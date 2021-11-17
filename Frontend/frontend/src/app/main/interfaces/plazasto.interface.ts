@@ -4,6 +4,6 @@ export interface IPlazasTO{
 }
 
 export class PlazasTO implements IPlazasTO {
-  plaza: String = "";
-  estado: Boolean = false;
+  plaza = "";
+  estado = false;
 }
