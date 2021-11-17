@@ -1,12 +1,16 @@
 const { application, response, request } = require("express");
 const { stringify } = require("nodemon/lib/utils");
 const express = require("express")
+const cors = require("cors")
 const registroCtrl = require("./controller/RegistroCtrl")
 const plazasCtrl = require("./controller/PlazasCtrl")
 
+
 const app = express();
 app.use(express.json());
+app.use(cors);
 
+/*********************  REGISTRO  **********************/
 
 app.get('/api/registro', async(request, response) => {
     let registros = await registroCtrl.listar();
@@ -45,6 +49,17 @@ app.put('/api/registro', async(request, response) => {
     }
 });
 
+app.delete('/api/registro/:id', async(request, response) => {
+    let id = request.params.id
+    console.log(id);
+    await registroCtrl.eliminar(id);
+    response.status(204).send("Server corriendo")
+});
+
+/*********************  FIN REGISTRO  ******************/
+
+/*********************  PLAZAS  ******************/
+
 app.put('/api/plazas', async(request, response) => {
     const plaza = request.body;
     try {
@@ -56,13 +71,7 @@ app.put('/api/plazas', async(request, response) => {
     }
 });
 
-app.delete('/api/registro/:id', async(request, response) => {
-    let id = request.params.id
-    console.log(id);
-    await registroCtrl.eliminar(id);
-    response.status(204).send("Server corriendo")
-});
-
+/*********************  FIN PLAZAS  ******************/
 
 app.listen(1400, () => {
     console.log("servidor corriendo")
