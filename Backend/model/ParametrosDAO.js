@@ -2,9 +2,9 @@ const mongoose = require("../DB/conexionBD")
 
 const parametrosSchema = mongoose.Schema({
 
-    tarifa_minuto_carro: Int,
-    tarifa_minuto_moto: Int,
-    tarifa_minuto_bicicleta: Int
+    tarifa_minuto_carro: Number,
+    tarifa_minuto_moto: Number,
+    tarifa_minuto_bicicleta: Number
 
 }, {
 
