@@ -2,7 +2,7 @@ const mongoose = require("../DB/conexionBD")
 
 const plazasSchema = mongoose.Schema({
     plaza: String,
-    estado: Boolean(false)
+    estado: String
 }, {
     collection: "plazas",
     versionKey: false

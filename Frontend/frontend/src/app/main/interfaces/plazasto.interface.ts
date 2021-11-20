@@ -1,9 +1,9 @@
 export interface IPlazasTO{
   plaza:String;
-  estado:Boolean;
+  estado:String;
 }
 
 export class PlazasTO implements IPlazasTO {
   plaza = "";
-  estado = false;
+  estado = "";
 }

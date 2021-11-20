@@ -8,22 +8,12 @@ const plazasCtrl = require("./controller/PlazasCtrl")
 
 const app = express();
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 /*********************  REGISTRO  **********************/
 
 app.get('/api/registro', async(request, response) => {
     let registros = await registroCtrl.listar();
-    app.put(async(request, response) => {
-        const plaza = request.body;
-        try {
-            await plazasCtrl.actualizar(plaza);
-            response.status(200).json(plaza);
-        } catch (error) {
-            console.log(error);
-            response.status(400).send(error);
-        }
-    });
     response.status(200).json(registros);
 });
 
