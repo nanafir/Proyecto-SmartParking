@@ -37,12 +37,11 @@ export class RegistroComponent implements OnInit {
       data => {
         this.listarRegistro();
         this.LimpiarFormulario();
-
       }
     )
 
-
   }
+
   LimpiarFormulario(){
     this.registro = new RegistroTO();
   }

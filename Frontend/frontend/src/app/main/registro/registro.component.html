@@ -132,10 +132,44 @@
         ul li select:focus {
             border: 2px solid #F00;
         }
+        
+        table,
+        td {
+            border: 1px solid black;
+        }
     </style>
 </head>
 
+<table>
+
+    <thead>
+        <tr>
+            <td>placa_vehiculo</td>
+            <td>plaza</td>
+            <td>hora_ingreso</td>
+            <td>hora_salida</td>
+            <td>imagen_vehiculo</td>
+            <td>tipo_vehiculo</td>
+            <td>total_pagar</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let registro of listaRegistro">
+
+            <td>{{ registro.placa_vehiculo }}</td>
+            <td>{{ registro.plaza }}</td>
+            <td>{{ registro.hora_ingreso }}</td>
+            <td>{{ registro.hora_salida }}</td>
+            <td>{{ registro.imagen_vehiculo }}</td>
+            <td>{{ registro.tipo_vehiculo }}</td>
+            <td>{{ registro.total_pagar }}</td>
+        </tr>
+    </tbody>
+</table>
+
 <body>
+
     <div id="contenedor">
 
         <h1>Registro Vehiculo</h1>
@@ -145,9 +179,10 @@
                 <li>
                     <label class="titulo" for="placa">Placa Vehiculo</label>
 
+
                     <div class="controles">
                         <span class="completo">
-      <input id="placa" name="placa" value="" />
+                          <input type="text" name="placa_vehiculo" [(ngModel)]="registro.placa_vehiculo"/>
     </span>
                     </div>
                 </li>
@@ -157,7 +192,7 @@
 
                     <div class="controles">
                         <span class="completo">
-      <input id="hora" name="hora" value="" />
+                          <input type="text" name="hora_ingreso" [(ngModel)]="registro.hora_ingreso"/>
     </span>
                     </div>
                 </li>
@@ -167,7 +202,12 @@
 
                     <div class="controles">
                         <span class="completo">
-      <input id="tipoVehiculo" name="tipoVehiculo" value="" />
+      <select type="text" name="tipo_vehiculo"[(ngModel)]="registro.tipo_vehiculo">
+        <option selected="selected">Seleccione...</option>
+        <option>Carro</option>
+        <option>Moto</option>
+        <option>Bicicleta</option>
+      </select>
     </span>
                     </div>
                 </li>
@@ -177,13 +217,16 @@
 
                     <div class="controles">
                         <span class="mitad">
-      <input id="plaza" name="plaza" value="" />
+                          <input type="text" name="plaza" [(ngModel)]="registro.plaza"/>
     </span>
                     </div>
                 </li>
+                <p align="right">
 
-                <button (click)="Guardar()">Guardar</button>
-                <button (click)="LimpiarFormulario()">Limpiar Formulario</button>
+                    <button (click)="Guardar()">Guardar</button>
+                    <button (click)="LimpiarFormulario()">Limpiar Formulario</button>
+
+                </p>
 
             </ul>
         </form>
