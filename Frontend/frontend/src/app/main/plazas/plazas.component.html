@@ -1,1 +1,16 @@
-<p>plazas works!</p>
+<h1>Parametros</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>plaza</td>
+            <td>estado</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let plazas of listaPlazas">
+            <td>{{plazas.plaza}}</td>
+            <td>{{plazas.estado}}</td>
+        </tr>
+    </tbody>
+</table>
