@@ -140,33 +140,7 @@
     </style>
 </head>
 
-<table align="center">
 
-    <thead>
-        <tr>
-            <td>placa_vehiculo</td>
-            <td>plaza</td>
-            <td>hora_ingreso</td>
-            <td>hora_salida</td>
-            <td>imagen_vehiculo</td>
-            <td>tipo_vehiculo</td>
-            <td>total_pagar</td>
-
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let registro of listaRegistro">
-
-            <td>{{ registro.placa_vehiculo }}</td>
-            <td>{{ registro.plaza }}</td>
-            <td>{{ registro.hora_ingreso }}</td>
-            <td>{{ registro.hora_salida }}</td>
-            <td>{{ registro.imagen_vehiculo }}</td>
-            <td>{{ registro.tipo_vehiculo }}</td>
-            <td>{{ registro.total_pagar }}</td>
-        </tr>
-    </tbody>
-</table>
 
 <body>
 
@@ -218,7 +192,6 @@
                     <div class="controles">
                         <span class="mitad">
                           <input type="text" name="plaza" [(ngModel)]="registro.plaza"/>
-
     </span>
                     </div>
                 </li>
@@ -228,10 +201,6 @@
                     <button (click)="LimpiarFormulario()">Limpiar Formulario</button>
 
                 </p>
-
-                <button *ngFor="let letra of letras " class="btn btn-primary">
-                  A
-                </button>
 
             </ul>
         </form>
