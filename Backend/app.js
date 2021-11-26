@@ -103,6 +103,8 @@ app.delete('/api/parametros/:id', async(request, response) => {
 
 /*********************  FIN PARAMETROS  ******************/
 
-app.listen(1400, () => {
+
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => {
     console.log("servidor corriendo")
 });
