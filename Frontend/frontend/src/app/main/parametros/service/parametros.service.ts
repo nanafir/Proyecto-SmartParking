@@ -16,7 +16,15 @@ export class ParametrosService {
     return this._http.get<ParametrosTO[]>(this.url);
   }
 
+  guardar(parametro: ParametrosTO) : Observable<ParametrosTO> {
+    return this._http.post<ParametrosTO>(this.url, parametro);
+  }
+
   actualizar(parametro: ParametrosTO) : Observable<ParametrosTO> {
     return this._http.put<ParametrosTO>(this.url, parametro);
+  }
+
+  eliminar(id: string) : Observable<string> {
+    return this._http.delete<string>(this.url + "/" + id);
   }
 }

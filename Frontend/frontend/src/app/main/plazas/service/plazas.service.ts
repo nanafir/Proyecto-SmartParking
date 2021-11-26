@@ -9,9 +9,23 @@ import { PlazasTO } from '../../interfaces/plazasto.interface';
 })
 export class PlazasService {
 
+  url:string = "https://smartparkingbackangelica.herokuapp.com/api/plazas";
+
   constructor(private _http: HttpClient) { }
 
   listarPlazas(): Observable<PlazasTO[]> {
-    return this._http.get<PlazasTO[]>("http://127.0.0.1:1400/api/plazas");
+    return this._http.get<PlazasTO[]>(this.url);
+  }
+
+  guardar(plaza: PlazasTO) : Observable<PlazasTO> {
+    return this._http.post<PlazasTO>(this.url, plaza);
+  }
+
+  actualizar(plaza: PlazasTO) : Observable<PlazasTO> {
+    return this._http.put<PlazasTO>(this.url, plaza);
+  }
+
+  eliminar(id: string) : Observable<string> {
+    return this._http.delete<string>(this.url + "/" + id);
   }
 }
